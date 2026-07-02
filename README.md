@@ -1,46 +1,20 @@
 # Noble AI
 
-A multi-model AI workbench running on my own infrastructure. Built for operators
-who need real work done, not chatbot demos.
+**Multi-model AI workbench. Self-hosted. Built for The Noble Glitch Network.**
 
-**Status:** Live (private alpha) · **Code:** Private — available for licensing
+Private AI infrastructure running on 4x Hostinger KVM VPS + RunPod A40 (48GB VRAM).
 
----
+- Qwen 3 27B via Ollama (daily workhorse)
+- Kimi K2.6 for hard coding tasks
+- Anthropic API integration
+- Custom agent tooling and automation
+- ARYA Dashboard for real-time server metrics and SSH relay
 
-## What it does
+## Infrastructure
 
-- **Model board landing.** Live-populated dropdown of every model on the box —
-  Ollama local models + hosted (OpenAI, Anthropic) side by side.
-- **Per use case pages.** Skip-tracing, NuExtract structured extraction, voice,
-  SMS, RAG, reasoning — each surfaced as its own tool with its own preset.
-- **Pipelines + presets.** Chain models, pin presets, hot-swap without redeploy.
-- **Health guardrails.** Every endpoint health-checked at the dropdown level —
-  you don't get to pick a dead model.
+- 4x Hostinger KVM VPS (nginx, Caddy, TLS, Tailscale mesh)
+- RunPod A40 48GB VRAM for GPU inference
+- Ollama for local model serving
+- PM2 for process management
 
-## Architecture (sketch)
-
-```
-[Operator browser]
-       │
-       ▼
-[Node frontend :11500] ──► [Ollama local models]
-       │                 ──► [Hosted API providers]
-       │                 ──► [Psych layer (deception/intent)]
-       │                 ──► [Reasoning corpus + prefilter]
-       ▼
-[Per-use-case pages: skip-trace, voice, SMS, RAG, extract]
-```
-
-## Why it exists
-
-Most AI tooling assumes you have one model and one task. I run a dozen models
-across local and hosted providers, switch them per call, and need every dial
-visible without code edits. Noble AI is the cockpit.
-
-## Demo
-
-Available on request. Email below.
-
----
-
-📧 desertshibari@gmail.com
+Built by [The Noble Glitch](https://thenobleglitch.com) Â· Alpha Tech Solutions LLC
